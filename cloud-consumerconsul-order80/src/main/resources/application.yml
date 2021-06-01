@@ -6,10 +6,20 @@ spring:
   application:
     name: consul-consumer-order
     #consul注册中心地址
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        service-name: ${spring.application.name}
+#  cloud:
+#    consul:
+#      host: localhost
+#      port: 8500
+#      discovery:
+#        service-name: ${spring.application.name}
+
+
+eureka:
+  client:
+    #是否将自己注册到注册中心, 默认true
+    register-with-eureka: true
+    #是否从EurekaServer抓取已有的注册信息,单机无所谓,集群必须设置为true配合ribbon使用负载均衡
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:7001/eureka  #单机版
 
