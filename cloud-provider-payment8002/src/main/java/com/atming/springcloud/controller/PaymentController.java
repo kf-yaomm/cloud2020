@@ -24,11 +24,12 @@ public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
+
     @Value("${server.port}")
     private String serverPort;
 
     @Resource
-    DiscoveryClient discoveryClient;
+    private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/create")
     public CommonResult create(@RequestBody Payment payment) {
