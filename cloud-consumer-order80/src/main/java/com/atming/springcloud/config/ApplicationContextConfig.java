@@ -12,8 +12,9 @@ import org.springframework.web.client.RestTemplate;
  */
 @Configuration
 public class ApplicationContextConfig {
+
     @Bean
-    @LoadBalanced
+    //@LoadBalanced   注释掉为了自己写Ribben轮询算法
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
