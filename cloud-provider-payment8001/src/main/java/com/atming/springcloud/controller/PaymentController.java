@@ -79,8 +79,8 @@ public class PaymentController {
 
 
     /**
+     * 下一下
      * feign超时测试
-     *
      * @return
      */
     @GetMapping("/payment/feign/timeout")
