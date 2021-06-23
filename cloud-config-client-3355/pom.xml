@@ -13,6 +13,12 @@
 
     <dependencies>
 
+        <!--    3366需要,P81节课添加依赖,添加消息总线RabbitMQ支持    -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+
         <!--    client端   -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
