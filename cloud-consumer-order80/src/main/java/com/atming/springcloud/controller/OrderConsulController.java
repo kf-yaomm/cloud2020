@@ -81,6 +81,17 @@ public class OrderConsulController {
     }
 
 
+    /**
+     * P94用,sleuth+zipkin链路监控使用
+     *
+     * @return
+     */
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin() {
+        String result = restTemplate.getForObject(INVOKE_URL + "/payment/zipkin/", String.class);
+        return result;
+    }
+
 
 
 
