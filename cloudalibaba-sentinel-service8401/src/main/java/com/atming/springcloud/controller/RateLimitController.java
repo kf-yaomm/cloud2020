@@ -20,6 +20,7 @@ public class RateLimitController {
     @GetMapping("/byResource")
     @SentinelResource(value = "byResource", blockHandler = "handleException")
     public CommonResult byResource() {
+
         return new CommonResult(200, "按资源名称限流测试ok", new Payment(2020L, "serial001"));
     }
 
@@ -28,6 +29,7 @@ public class RateLimitController {
     }
 
     @GetMapping("/rateLimit/byUrl")
+    //@SentinelResource(value = "byUrl")
     @SentinelResource(value = "byUrl", blockHandlerClass = CustomerBlockHandler.class, blockHandler = "handlerException")
     public CommonResult byUrl() {
         return new CommonResult(200, "按url限流测试OK", new Payment(2020L, "serial001"));
