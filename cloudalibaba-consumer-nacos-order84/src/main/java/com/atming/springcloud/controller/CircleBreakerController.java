@@ -61,7 +61,7 @@ public class CircleBreakerController {
         return new CommonResult(444, "兜底异常handlerFallback，exception内容" + e.getMessage(), payment);
     }
 
-//--------------------------------- OpenFeign ---------------------------------
+
 
     /**
      * 本例子是 blockHandler
@@ -75,6 +75,9 @@ public class CircleBreakerController {
         return new CommonResult(445, "blockHandler-sentinel限流，无此流水：blockException" + blockException.getClass().getCanonicalName(), payment);
     }
 
+//--------------------------------- OpenFeign ---------------------------------
+
+    //只启动 84 和 9003 然后把9003停掉  会降级保护
     @GetMapping(value = "/consumer/paymentSQL/{id}")
     public CommonResult<Payment> paymentSQL(@PathVariable("id") Long id) {
         return paymentService.PaymentSQL(id);
